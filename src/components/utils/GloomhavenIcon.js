@@ -36,6 +36,27 @@ import generalShield from '../../images/icons/general/general-small-shield.png';
 import generalTarget from '../../images/icons/general/general-small-target.png';
 import generalPlusOne from '../../images/icons/general/general-small-plus-one.png';
 
+import characterIconBrute from '../../images/icons/characters/brute-icon.png';
+import characterIconCragheart from '../../images/icons/characters/cragheart-icon.png';
+import characterIconMindthief from '../../images/icons/characters/mindthief-icon.png';
+import characterIconScoundrel from '../../images/icons/characters/scoundrel-icon.png';
+import characterIconSpellweaver from '../../images/icons/characters/spellweaver-icon.png';
+import characterIconTinkerer from '../../images/icons/characters/tinkerer-icon.png';
+
+import characterMatFrontBrute from '../../images/icons/characters/brute-mat-front.png';
+import characterMatFrontCragheart from '../../images/icons/characters/cragheart-mat-front.png';
+import characterMatFrontMindthief from '../../images/icons/characters/mindthief-mat-front.png';
+import characterMatFrontScoundrel from '../../images/icons/characters/scoundrel-mat-front.png';
+import characterMatFrontSpellweaver from '../../images/icons/characters/spellweaver-mat-front.png';
+import characterMatFrontTinkerer from '../../images/icons/characters/tinkerer-mat-front.png';
+
+import characterMatBackBrute from '../../images/icons/characters/brute-mat-back.png';
+import characterMatBackCragheart from '../../images/icons/characters/cragheart-mat-back.png';
+import characterMatBackMindthief from '../../images/icons/characters/mindthief-mat-back.png';
+import characterMatBackScoundrel from '../../images/icons/characters/scoundrel-mat-back.png';
+import characterMatBackSpellweaver from '../../images/icons/characters/spellweaver-mat-back.png';
+import characterMatBackTinkerer from '../../images/icons/characters/tinkerer-mat-back.png';
+
 const icons = {
   elementAir: elementAir,
   elementAll: elementAll,
@@ -72,6 +93,28 @@ const icons = {
   generalShield: generalShield,
   generalTarget: generalTarget,
   generalPlusOne: generalPlusOne,
+
+  characterIconBrute: characterIconBrute,
+  characterIconCragheart: characterIconCragheart,
+  characterIconMindthief: characterIconMindthief,
+  characterIconScoundrel: characterIconScoundrel,
+  characterIconSpellweaver: characterIconSpellweaver,
+  characterIconTinkerer: characterIconTinkerer,
+
+  characterMatFrontBrute: characterMatFrontBrute,
+  characterMatFrontCragheart: characterMatFrontCragheart,
+  characterMatFrontMindthief: characterMatFrontMindthief,
+  characterMatFrontScoundrel: characterMatFrontScoundrel,
+  characterMatFrontSpellweaver: characterMatFrontSpellweaver,
+  characterMatFrontTinkerer: characterMatFrontTinkerer,
+
+  characterMatBackBrute: characterMatBackBrute,
+  characterMatBackCragheart: characterMatBackCragheart,
+  characterMatBackMindthief: characterMatBackMindthief,
+  characterMatBackScoundrel: characterMatBackScoundrel,
+  characterMatBackSpellweaver: characterMatBackSpellweaver,
+  characterMatBackTinkerer: characterMatBackTinkerer,
+
 };
 
 class GloomhavenIconComponent extends Component {
@@ -82,7 +125,9 @@ class GloomhavenIconComponent extends Component {
 
   render() {
     return (
-      <img src={this.findIcon()} width={this.props.width} alt={this.props.icon} height={this.props.height} className="gloomhaven-icon-img" />
+      <img src={this.findIcon()} onClick={this.props.onClick}
+           width={this.props.width} alt={this.props.icon} height={this.props.height}
+           className="gloomhaven-icon-img" />
     );
   }
 }
