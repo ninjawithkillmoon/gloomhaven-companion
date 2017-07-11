@@ -11,7 +11,7 @@ class ScenarioLevelComponent extends Component {
       character2: 0,
       character3: 0,
       character4: 0
-    }
+    };
   }
 
   levelButtonClick(character, value) {

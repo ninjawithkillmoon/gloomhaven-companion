@@ -80,6 +80,8 @@ export const TREASURES = [
 	{ title: "Random Item Design" },
 	{ title: "Random Item Design" },
 	{ title: "A Mysterious Message (please see Scenario Book to view)" }, // 75
+	{ title: "Major Stamina Potion (Item 34)" }, // 76 (K1)
+	{ title: "A Mysterious Diagram (please see Kickstarter Scenario Book to view)" }, // 77 (K2)
 ];
 
 export const DONATION_MILESTONES = [10, 15, 20, 25, 30, 35, 40, 50, 60, 70, 80, 90, 100];
@@ -181,7 +183,17 @@ export const SCENARIO_TREAURES = [
 	[],
 	[54],
 	[],
+	[], // 95
+	[], // K1
 	[],
+	[],
+	[],
+	[], // 100 - K5
+	[],
+	[],
+	[76],
+	[],
+	[77], // 105 - K6
 ];
 
 // index: treasure number; value: scenario number that treasure appears in
@@ -261,7 +273,9 @@ export const TREASURE_SCENARIOS = [
   23,
   39,
   45,
-  76 // 75
+  76, // 75
+  95 + 8,// K8
+  95 + 10// k10
 ];
 
 class ProsperityComponent extends Component {
@@ -367,6 +381,11 @@ class ProsperityComponent extends Component {
   	let scenarioNumber = TREASURE_SCENARIOS[number];
 
   	let treasure = TREASURES[number];
+
+  	// special display of scenario number for Kickstarter scenarios
+  	if (scenarioNumber >= 96 && scenarioNumber <= 105) {
+  		scenarioNumber = "K" + (scenarioNumber - 95);
+  	}
 
   	if (availableTreasures.indexOf(number) >= 0) {
   		available = true;

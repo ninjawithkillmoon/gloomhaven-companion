@@ -7,3 +7,9 @@
 		margin-left: 5px;
 	}
 }
+
+@media (max-width: $breakpoint-smaller-desktop) {
+  nav .container {
+		width: 100%;
+	}
+}

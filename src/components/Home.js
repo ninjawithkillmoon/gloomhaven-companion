@@ -3,6 +3,42 @@ import { Grid, Row, Col, Button } from 'react-bootstrap';
 
 const versionHistory = [
   {
+    versionNumber: "1.5",
+    items: [
+      "many more monster health tracker updates, implementing new ways to apply and remove status tokens",
+      "fixed some menu issues by consolidating top level items"
+    ],
+    date: "2017/07/11"
+  },
+  {
+    versionNumber: "1.4",
+    items: [
+      "implemented new Dropbox load and save functionality",
+    ],
+    date: "2017/07/07"
+  },
+  {
+    versionNumber: "1.3",
+    items: [
+      "added solo scenarios",
+      "monster status tokens can now be tracked in the monster health tracker",
+      "updated scenario select for monster health tracker to chooser instead of number input",
+      "added ability to select individual monster types for monster health tracker",
+      "can now designate monsters as summons/spawns for tracking loot drops",
+      "better monster sorting on monster health tracker"
+    ],
+    date: "2017/07/07"
+  },
+  {
+    versionNumber: "1.2",
+    items: [
+      "added Kickstarter scenarios",
+      "added Kickstarter scenario treasures",
+      "Google Analytics implemented"
+    ],
+    date: "2017/06/29"
+  },
+  {
     versionNumber: "1.1",
     items: [
       "added sanctuary donations tracker"
@@ -57,7 +93,7 @@ class HomeComponent extends Component {
               <div className="well">
                 <p className="lead">Welcome to <strong><em>The Arcane Library</em></strong>, a companion app and set of utilities for the board game <strong>Gloomhaven</strong>. We hope you enjoy your stay!</p>
                 <p><strong><em>The Arcane Library</em></strong> can track a variety of information about your Gloomhaven campaign, and also provides some <strong>standalone utilities</strong> that will work even when you're not tracking campaign progress.</p>
-                <p>By using the <strong>Save</strong> and <strong>Load</strong> buttons at the top of the page, you can save your progress in Gloomhaven to a text file on your computer and resume tracking your game at a later time. Be sure to save often!</p>
+                <p>The <strong>Save</strong> and <strong>Load</strong> buttons at the top of the page allow you to save your progress in Gloomhaven to a file in your <strong>Dropbox</strong> account. The <strong>Import</strong> and <strong>Export</strong> buttons allow you to save your progress to a text file on your computer. Be sure to save often!</p>
                 <p>If you need any help with the application, have any suggestions or requests, or have experienced any unexpected behaviour, please feel free to <strong><a href="https://boardgamegeek.com/user/FoxWithTwoTales">send me a message</a></strong> on BoardGameGeek.</p>
               </div>
       			</Col>

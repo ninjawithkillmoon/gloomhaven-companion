@@ -18,6 +18,10 @@ export default {
       game.globalAchievements[ACHIEVEMENTS.GLOBAL_ACHIEVEMENTS.THE_DEMON_DETHRONED] = false;
     }
 
+    if (game.monsterHealth && !game.monsterHealth.defaultNumPlaying) {
+      game.monsterHealth.defaultNumPlaying = 4;
+    }
+
     if (!game.donations) {
       game.donations = 0;
     }

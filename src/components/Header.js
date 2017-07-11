@@ -4,6 +4,8 @@ import { Navbar, Button, Glyphicon } from 'react-bootstrap';
 import GameActions from '../actions/GameActions';
 import ErrorActions from '../actions/ErrorActions';
 import FileReaderInput from 'react-file-reader-input';
+import DropboxChooser from './DropboxChooser';
+import DropboxSaver from './DropboxSaver';
 
 class HeaderComponent extends Component {
 
@@ -42,12 +44,27 @@ class HeaderComponent extends Component {
         </Navbar.Header>
         <Navbar.Collapse>
           <ul className="nav navbar-nav">
-            <li className={path.startsWith("/party") && "active"}><Link to="/party">Party</Link></li>
-            <li className={path.startsWith("/scenarios") && "active"}><Link to="/scenarios">Scenarios</Link></li>
-            <li className={path.startsWith("/prosperity") && "active"}><Link to="/prosperity">Prosperity</Link></li>
-            <li className={path.startsWith("/achievements") && "active"}><Link to="/achievements">Achievements</Link></li>
-            <li className={path.startsWith("/characters") && "active"}><Link to="/characters">Characters</Link></li>
-            {/*<li className={path.startsWith("/unlocks") && "active"}><Link to="/unlocks">Unlocks</Link></li>}*/}
+            <li className={["/party", "/characters"].indexOf(path) > -1 ? "active dropdown" : "dropdown"}>
+              <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                Party&nbsp;
+                <span className="caret"></span>
+              </a>
+              <ul className="dropdown-menu">
+                <li><Link to="/party">Party Details and Achievements</Link></li>
+                <li><Link to="/characters">Characters</Link></li>
+              </ul>
+            </li>
+            <li className={["/scenarios", "/prosperity", "/achievements"].indexOf(path) > -1 ? "active dropdown" : "dropdown"}>
+              <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                Global&nbsp;
+                <span className="caret"></span>
+              </a>
+              <ul className="dropdown-menu">
+                <li><Link to="/scenarios">Scenarios</Link></li>
+                <li><Link to="/prosperity">Prosperity and Treasure</Link></li>
+                <li><Link to="/achievements">Global Achievements</Link></li>
+              </ul>
+            </li>
             <li className={path.startsWith("/utilities") ? "active dropdown" : "dropdown"}>
               <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                 Utilities&nbsp;
@@ -62,10 +79,14 @@ class HeaderComponent extends Component {
             </li>
           </ul>
           <div className="navbar-btn">
+            <DropboxChooser></DropboxChooser>
+            <DropboxSaver></DropboxSaver>
             <FileReaderInput className="load-game-file-input" as="text" id="my-file-input" onChange={this.loadGame}>
-              <Button className="btn-brute"><Glyphicon glyph="cloud-download" /> Load</Button>
+              <Button className="btn-brute"><Glyphicon glyph="save-file" /> Import</Button>
             </FileReaderInput>
-            <Button className="btn-scoundrel" onClick={this.saveGame.bind(this)}><Glyphicon glyph="cloud-upload" /> Save</Button>
+            <div>
+              <Button className="btn-cragheart" onClick={this.saveGame.bind(this)}><Glyphicon glyph="open-file" /> Export</Button>
+            </div>
           </div>
         </Navbar.Collapse>
       </Navbar>

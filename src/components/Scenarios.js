@@ -583,6 +583,170 @@ export const SCENARIOS = [
     globalAchievementsRequiredIncomplete: [],
     partyAchievementsRequired: [PARTY.PARTY_ACHIEVEMENTS.THROUGH_THE_NEST] 
   },
+  // KICKSTARTER SCENARIOS
+  { 
+    title: "Just Another Night",
+    globalAchievementsRequired: [],
+    globalAchievementsRequiredIncomplete: [],
+    partyAchievementsRequired: [] 
+  },
+  { 
+    title: "A Quatryl Scorned",
+    globalAchievementsRequired: [],
+    globalAchievementsRequiredIncomplete: [],
+    partyAchievementsRequired: [] 
+  },
+  { 
+    title: "Unreliable Medicine",
+    globalAchievementsRequired: [],
+    globalAchievementsRequiredIncomplete: [],
+    partyAchievementsRequired: [] 
+  },
+  { 
+    title: "Unlikely Allies",
+    globalAchievementsRequired: [],
+    globalAchievementsRequiredIncomplete: [],
+    partyAchievementsRequired: [] 
+  },
+  { 
+    title: "The Sun Spire",
+    globalAchievementsRequired: [],
+    globalAchievementsRequiredIncomplete: [],
+    partyAchievementsRequired: [] 
+  },
+  { 
+    title: "A Ship in a Storm",
+    globalAchievementsRequired: [],
+    globalAchievementsRequiredIncomplete: [],
+    partyAchievementsRequired: [] 
+  },
+  { 
+    title: "Arrival in Chains",
+    globalAchievementsRequired: [],
+    globalAchievementsRequiredIncomplete: [],
+    partyAchievementsRequired: [] 
+  },
+  { 
+    title: "The Doctor's Lab",
+    globalAchievementsRequired: [],
+    globalAchievementsRequiredIncomplete: [],
+    partyAchievementsRequired: [] 
+  },
+  { 
+    title: "Skewed Perspective",
+    globalAchievementsRequired: [],
+    globalAchievementsRequiredIncomplete: [],
+    partyAchievementsRequired: [] 
+  },
+  { 
+    title: "Panic Room",
+    globalAchievementsRequired: [],
+    globalAchievementsRequiredIncomplete: [],
+    partyAchievementsRequired: [] 
+  },
+  // SOLO SCENARIOS
+  { 
+    title: "Return to the Black Barrow",
+    globalAchievementsRequired: [],
+    globalAchievementsRequiredIncomplete: [],
+    partyAchievementsRequired: [] 
+  },
+  { 
+    title: "An Unfortunate Intrusion",
+    globalAchievementsRequired: [],
+    globalAchievementsRequiredIncomplete: [],
+    partyAchievementsRequired: [] 
+  },
+  { 
+    title: "Corrupted Laboratory",
+    globalAchievementsRequired: [],
+    globalAchievementsRequiredIncomplete: [],
+    partyAchievementsRequired: [] 
+  },
+  { 
+    title: "Armory Heist",
+    globalAchievementsRequired: [],
+    globalAchievementsRequiredIncomplete: [],
+    partyAchievementsRequired: [] 
+  },
+  { 
+    title: "Stone Defense",
+    globalAchievementsRequired: [],
+    globalAchievementsRequiredIncomplete: [],
+    partyAchievementsRequired: [] 
+  },
+  { 
+    title: "Rodent Liberation",
+    globalAchievementsRequired: [],
+    globalAchievementsRequiredIncomplete: [],
+    partyAchievementsRequired: [] 
+  },
+  { 
+    title: "Caravan Escort",
+    globalAchievementsRequired: [],
+    globalAchievementsRequiredIncomplete: [],
+    partyAchievementsRequired: [] 
+  },
+  { 
+    title: "Unnatural Insults",
+    globalAchievementsRequired: [],
+    globalAchievementsRequiredIncomplete: [],
+    partyAchievementsRequired: [] 
+  },
+  { 
+    title: "Storage Fees",
+    globalAchievementsRequired: [],
+    globalAchievementsRequiredIncomplete: [],
+    partyAchievementsRequired: [] 
+  },
+  { 
+    title: "Plane of the Wild Beasts",
+    globalAchievementsRequired: [],
+    globalAchievementsRequiredIncomplete: [],
+    partyAchievementsRequired: [] 
+  },
+  { 
+    title: "Harvesting the Night",
+    globalAchievementsRequired: [],
+    globalAchievementsRequiredIncomplete: [],
+    partyAchievementsRequired: [] 
+  },
+  { 
+    title: "Plagued Crypt",
+    globalAchievementsRequired: [],
+    globalAchievementsRequiredIncomplete: [],
+    partyAchievementsRequired: [] 
+  },
+  { 
+    title: "Battle of the Bards",
+    globalAchievementsRequired: [],
+    globalAchievementsRequiredIncomplete: [],
+    partyAchievementsRequired: [] 
+  },
+  { 
+    title: "Corrupted Hunt",
+    globalAchievementsRequired: [],
+    globalAchievementsRequiredIncomplete: [],
+    partyAchievementsRequired: [] 
+  },
+  { 
+    title: "Aftermath",
+    globalAchievementsRequired: [],
+    globalAchievementsRequiredIncomplete: [],
+    partyAchievementsRequired: [] 
+  },
+  { 
+    title: "Elemental Secrets",
+    globalAchievementsRequired: [],
+    globalAchievementsRequiredIncomplete: [],
+    partyAchievementsRequired: [] 
+  },
+  { 
+    title: "The Caged Bear",
+    globalAchievementsRequired: [],
+    globalAchievementsRequiredIncomplete: [],
+    partyAchievementsRequired: [] 
+  },
 ];
 
 class ScenariosComponent extends Component {
@@ -728,6 +892,17 @@ class ScenariosComponent extends Component {
 
     // always show number, but only show scenario title if it is unlocked
     let buttonText = number;
+
+    // special text on button for kickstarter scenarios:
+    if (number >= 96 && number <= 105) {
+      buttonText = "K" + (buttonText - 95); // will show K1 - K10 instead of the number
+    }
+
+    // special text on button for solo scenarios
+    if (number >= 106 && number <= 122) {
+      buttonText = "S" + (buttonText - 105); // will show K1 - K10 instead of the number
+    }
+
     if (this.state.scenariosUnlocked.indexOf(number) >= 0) {
       buttonText += ": " + scenario.title;
       xs = 12;
@@ -827,6 +1002,8 @@ class ScenariosComponent extends Component {
     let personalQuestColumns = [];
     let randomScenarioColumns = [];
     let otherColumns = [];
+    let kickstarterColumns = [];
+    let soloColumns = [];
 
     // campaign missions
     for (let i=1; i<= 51; i++) {
@@ -848,6 +1025,16 @@ class ScenariosComponent extends Component {
       otherColumns.push(this.makeScenarioColumn(i));
     }
 
+    // kickstarter scenarios
+    for (let i=96; i<= 105; i++) {
+      kickstarterColumns.push(this.makeScenarioColumn(i));
+    }
+
+    // kickstarter scenarios
+    for (let i=106; i<= 122; i++) {
+      soloColumns.push(this.makeScenarioColumn(i));
+    }
+
     return (
       <div className="container scenarios-container">
       	<Grid>
@@ -858,6 +1045,7 @@ class ScenariosComponent extends Component {
               <p>Selecting a scneario that has been unlocked will change its status to <strong>completed</strong>.</p>
               <p>Both the <strong>party achievements</strong> and <strong>global achievements</strong> that you have marked as gained and lost in the app will determine whether you are eligible to do a scenario in campaign mode. The status of a scenario will <strong>update automatically</strong> as you gain and lose party and global achievements.</p>
               <p>Please note that the achievement requirements should be up to date for the <strong>second printing</strong> of Gloomhaven, because there were a number of loopholes closed. Please see the <strong>Scenario book</strong> and <strong>Sticker sheets</strong> section of <a href="https://boardgamegeek.com/thread/1761512/official-second-printing-change-log">Official Second Printing Change Log</a> for further details if you own the original printing.</p>
+              <p>The <strong>Kickstarer scenarios</strong> start with <strong>K</strong> (eg. K9). The <strong>solo scenarios</strong> start with <strong>S</strong> (eg. S11) and are in the order presented in the solo scenario book.</p>
             </Col>
           </Row>
           <Row className="scenario-key">
@@ -885,6 +1073,14 @@ class ScenariosComponent extends Component {
           <hr />
           <Row>
             {otherColumns}
+          </Row>
+          <hr />
+          <Row>
+            {kickstarterColumns}
+          </Row>
+          <hr />
+          <Row>
+            {soloColumns}
           </Row>
       	</Grid>
       </div>

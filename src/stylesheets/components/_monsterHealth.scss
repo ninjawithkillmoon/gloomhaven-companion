@@ -9,6 +9,50 @@
 		  padding-right: 2px;
 		}
 	}
+
+	div {
+		padding-left: 5px;
+		padding-right: 5px;
+	}
+}
+
+.text-middle-button {
+	margin-top: 11px;
+}
+
+.monster-health-container {
+	.btn {
+		min-height: 44px;
+	}
+}
+
+.scenario-chooser-container {
+	div {
+		padding-left: 5px;
+		padding-right: 5px;
+	}
+}
+
+.btn-scenario-chooser {
+	margin-bottom: 5px;
+}
+
+.btn-monster {
+	.gloomhaven-icon-img {
+		margin-right: 2px;
+		margin-left: 2px;
+	}
+}
+
+.status-token-buttons {
+	.btn {
+		margin-top: 5px;
+	}
+
+	div {
+		padding-left: 5px;
+		padding-right: 5px;
+	}
 }
 
 .monster-health-col {

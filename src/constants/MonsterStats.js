@@ -8938,6 +8938,7 @@ export const SCENARIO_MONSTERS =
             [   {"name": "Bandit Archer"}
             ,   {"name": "Bandit Guard"}
             ,   {"name": "Cultist"}
+            ,   {"name": "Living Bones"}
             ,   {"name": "Giant Viper"}
             ]
         },
@@ -8992,6 +8993,213 @@ export const SCENARIO_MONSTERS =
             ,   {"name": "Earth Demon"}
             ,   {"name": "Savvas Lavaflow"}
             ]
-        }
+        },
+        // Kickstarter scenarios
+        { name: "#K1 Just Another Night"
+        , decks:
+            [   {"name": "Bandit Archer"}
+            ,   {"name": "Bandit Guard"}
+            ,   {"name": "Inox Archer"}
+            ,   {"name": "Inox Guard"}
+            ,   {"name": "Inox Shaman"}
+            ]
+        },
+        { name: "#K2 A Quatryl Scorned"
+        , decks:
+            [   {"name": "Bandit Archer"}
+            ,   {"name": "Bandit Guard"}
+            ,   {"name": "Ancient Artillery"}
+            ]
+        },
+        { name: "#K3 Unreliable Medicine"
+        , decks:
+            [   {"name": "Giant Viper"}
+            ,   {"name": "Earth Demon"}
+            ,   {"name": "Vermling Scout"}
+            ,   {"name": "Vermling Shaman"}
+            ]
+        },
+        { name: "#K4 Unlikely Allies"
+        , decks:
+            [   {"name": "Vermling Scout"}
+            ,   {"name": "Giant Viper"}
+            ]
+        },
+        { name: "#K5 The Sun Spire"
+        , decks:
+            [   {"name": "Vermling Scout"}
+            ,   {"name": "Sun Demon"}
+            ,   {"name": "Black Imp"}
+            ,   {"name": "Vermling Shaman"}
+            ]
+        },
+        { name: "#K6 A Ship in a Storm"
+        , decks:
+            [   {"name": "Wind Demon"}
+            ,   {"name": "Lurker"}
+            ,   {"name": "Frost Demon"}
+            ]
+        },
+        { name: "#K7 Arrival in Chains"
+        , decks:
+            [   {"name": "Cave Bear"}
+            ,   {"name": "Rending Drake"}
+            ,   {"name": "Spitting Drake"}
+            ,   {"name": "Stone Golem"}
+            ]
+        },
+        { name: "#K8 The Doctor's Lab"
+        , decks:
+            [   {"name": "Living Bones"}
+            ,   {"name": "Ancient Artillery"}
+            ,   {"name": "Ooze"}
+            ,   {"name": "Stone Golem"}
+            ]
+        },
+        { name: "#K9 Skewed Perspective"
+        , decks:
+            [   {"name": "Hound"}
+            ,   {"name": "Cultist"}
+            ,   {"name": "Living Spirit"}
+            ,   {"name": "Living Bones"}
+            ]
+        },
+        { name: "#K10 Panic Room"
+        , decks:
+            [   {"name": "Night Demon"}
+            ,   {"name": "Deep Terror"}
+            ]
+        },
+        // solo scenarios
+        { name: "#S1 - Brute - Return to the Black Barrow"
+        , decks:
+            [   {"name": "Bandit Guard"}
+            ,   {"name": "Bandit Archer"}
+            ,   {"name": "Living Bones"}
+            ]
+        },
+        { name: "#S2 - Tinkerer - An Unfortunate Intrusion"
+        , decks:
+            [   {"name": "City Guard"}
+            ,   {"name": "Vermling Scout"}
+            ,   {"name": "Vermling Shaman"}
+            ]
+        },
+        { name: "#S3 - Spellweaver - Corrupted Library"
+        , decks:
+            [   {"name": "Black Imp"}
+            ,   {"name": "Spitting Drake"}
+            ,   {"name": "Stone Golem"}
+            ]
+        },
+        { name: "#S4 - Scoundrel - Armory Heist"
+        , decks:
+            [   {"name": "City Guard"}
+            ,   {"name": "Stone Golem"}
+            ,   {"name": "Ancient Artillery"}
+            ]
+        },
+        { name: "#S5 - Cragheart - Stone Defense"
+        , decks:
+            [   {"name": "Cave Bear"}
+            ,   {"name": "Ooze"}
+            ,   {"name": "Sun Demon"}
+            ]
+        },
+        { name: "#S6 - Mindthief - Rodent Liberation"
+        , decks:
+            [   {"name": "Vermling Scout"}
+            ,   {"name": "Vermling Shaman"}
+            ,   {"name": "Earth Demon"}
+            ]
+        },
+        { name: "#S7 - Sunkeeper - Caravan Escort"
+        , decks:
+            [   {"name": "City Guard"}
+            ,   {"name": "Bandit Guard"}
+            ,   {"name": "Bandit Archer"}
+            ,   {"name": "Inox Guard"}
+            ,   {"name": "Inox Archer"}
+            ,   {"name": "Inox Shaman"}
+            ,   {"name": "Vermling Scout"}
+            ,   {"name": "Vermling Shaman"}
+            ,   {"name": "Cave Bear"}
+            ]
+        },
+        { name: "#S8 - Berserker - Unnatural Insults"
+        , decks:
+            [   {"name": "Living Corpse"}
+            ,   {"name": "Living Bones"}
+            ,   {"name": "Cultist"}
+            ,   {"name": "Inox Shaman"}
+            ]
+        },
+        { name: "#S9 - Quartermaster - Storage Fees"
+        , decks:
+            [   {"name": "Hound"}
+            ,   {"name": "Bandit Guard"}
+            ,   {"name": "Bandit Archer"}
+            ]
+        },
+        { name: "#S10 - Summoner - Plane of the Wild Beasts"
+        , decks:
+            [   {"name": "Hound"}
+            ,   {"name": "Spitting Drake"}
+            ,   {"name": "Cave Bear"}
+            ]
+        },
+        { name: "#S11 - Nightshroud - Harvesting the Night"
+        , decks:
+            [   {"name": "Night Demon"}
+            ,   {"name": "Deep Terror"}
+            ]
+        },
+        { name: "#S12 - Plagueherald - Plagued Crypt"
+        , decks:
+            [   {"name": "Giant Viper"}
+            ,   {"name": "Black Imp"}
+            ]
+        },
+        { name: "#S13 - Soothsinger - Battle of the Bards"
+        , decks:
+            [   {"name": "Bandit  Guard"}
+            ,   {"name": "Bandit Archer"}
+            ,   {"name": "City Guard"}
+            ,   {"name": "City Archer"}
+            ,   {"name": "Stone Golem"}
+            ,   {"name": "Vermling Shaman"}
+            ]
+        },
+        { name: "#S14 - Doomstalker - Corrupted Hunt"
+        , decks:
+            [   {"name": "Hound"}
+            ,   {"name": "Earth Demon"}
+            ,   {"name": "Flame Demon"}
+            ,   {"name": "Giant Viper"}
+            ,   {"name": "Spitting Drake"}
+            ]
+        },
+        { name: "#S15 - Sawbones - Aftermath"
+        , decks:
+            [   {"name": "City Guard"}
+            ]
+        },
+        { name: "#S16 - Elementalist - Elemental Secrets"
+        , decks:
+            [   {"name": "Flame Demon"}
+            ,   {"name": "Earth Demon"}
+            ,   {"name": "Frost Demon"}
+            ,   {"name": "Wind Demon"}
+            ]
+        },
+        { name: "#S17 - Beast Tyrant - The Caged Bear"
+        , decks:
+            [   {"name": "Hound"}
+            ,   {"name": "Forest Imp"}
+            ,   {"name": "Rending Drake"}
+            ,   {"name": "Vermling Shaman"}
+            ,   {"name": "Cave Bear"}
+            ]
+        },
 
     ];
