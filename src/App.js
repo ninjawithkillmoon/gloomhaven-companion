@@ -16,10 +16,13 @@ import Unlocks from './components/Unlocks';
 import GameStore from './stores/GameStore';
 import ErrorStore from './stores/ErrorStore';
 import ErrorActions from './actions/ErrorActions';
+import Prototypes from './prototypes';
 
 class App extends Component {
   constructor() {
     super();
+
+    Prototypes.init();
 
     this.state = {
       game: GameStore.getGame(),
