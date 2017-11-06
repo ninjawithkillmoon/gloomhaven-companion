@@ -56,10 +56,11 @@ export default {
     });
   },
 
-  changeProsperity(amount) {
+  changeProsperity(amount, source) {
     AppDispatcher.dispatch({
       actionType: GameConstants.CHANGE_PROSPERITY,
-      amount: amount
+      amount: amount,
+      source
     });
   }
 
