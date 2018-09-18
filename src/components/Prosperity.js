@@ -283,17 +283,31 @@ class ProsperityComponent extends Component {
 	constructor() {
     super();
 
-    this.state = GameStore.getGame();
+    this.state = Object.assign({},{prosperityTable: false}, GameStore.getGame());
 
     this.onChange = this.onChange.bind(this);
   }
 
-  increaseProsperity() {
-  	GameActions.changeProsperity(1);
+  getIncreaseProsperity(source) {
+    return (event) => {
+      event.preventDefault();
+      this.increaseProsperity(source);
+    }
   }
 
-  decreaseProsperity() {
-  	GameActions.changeProsperity(-1);
+  increaseProsperity(source) {
+    GameActions.changeProsperity(1, source);
+  }
+
+  getDecreaseProsperity(source) {
+    return (event) => {
+      event.preventDefault();
+      this.decreaseProsperity(source);
+    }
+  }
+
+  decreaseProsperity(source) {
+    GameActions.changeProsperity(-1, source);
   }
 
   donateToGreatOak(amount) {
@@ -318,19 +332,16 @@ class ProsperityComponent extends Component {
     	}
     }
 
-    let newProsperity = this.state.prosperity + prosperityChange;
-
-    if (newProsperity > 64) {
-    	newProsperity = 64;
+    if(prosperityChange>0) {
+      this.increaseProsperity("Donations")
     }
 
-    if (newProsperity < 0) {
-    	newProsperity = 0;
+    if(prosperityChange<0) {
+      this.decreaseProsperity("Donations")
     }
 
     this.setState({
-      donations: newDonations,
-      prosperity: newProsperity
+      donations: newDonations
     }, function() {
       GameActions.changeGame(this.state);
     });
@@ -475,7 +486,66 @@ class ProsperityComponent extends Component {
   	return availableTreasures;
   }
 
+  getProsperity() {
+    const {prosperityTable, prosperityLog} = this.state;
+
+    if (prosperityTable) {
+      return (
+        <Row>
+          <Col>
+            <Table striped condensed hover>
+              <thead>
+                <tr>
+                  <th>Source</th>
+                  <th>Amount</th>
+                </tr>
+              </thead>
+              <tbody>
+                {prosperityLog.map(({amount, source}, index) => {
+                  return (
+                    <tr key={index}>
+                      <td>{source}</td>
+                      <td>{amount}</td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </Table>
+          </Col>
+        </Row>
+      )
+    }
+    let prosperityChecks = [];
+
+    for (let i=1; i<=this.state.prosperity; i++) {
+      if ([4, 9, 15, 22, 30, 39, 50, 64].indexOf(i) > -1) {
+        prosperityChecks.push(<Glyphicon className="milestone" glyph="check" key={i} />);
+      }
+      else {
+        prosperityChecks.push(<Glyphicon glyph="check" key={i} />);
+      }
+    }
+
+    for (let i=this.state.prosperity + 1; i<=64; i++) {
+      if ([4, 9, 15, 22, 30, 39, 50, 64].indexOf(i) > -1) {
+        prosperityChecks.push(<Glyphicon className="milestone" glyph="unchecked" key={i} />);
+      }
+      else {
+        prosperityChecks.push(<Glyphicon glyph="unchecked" key={i} />);
+      }
+    }
+
+    return (
+      <Row className="prosperity-checks-list" key="pros-2">
+        <Col xs={12} md={12}>
+          {prosperityChecks}
+        </Col>
+      </Row>
+    );
+  }
+
   render() {
+    const {prosperityTable} = this.state;
   	// treasures
   	let treasureColumns = [];
 
@@ -543,26 +613,47 @@ class ProsperityComponent extends Component {
 	      		</Col>
 	      	</Row>
       		<Row>
-      			<Col xs={12} md={8} className="prosperity-checks-container">
-      				<Row>
-      					<Col xs={12} md={12} className="text-center">
-									<h2>Prosperity</h2>
-								</Col>
-								<Col xs={12} md={12} className="prosperity-label-container text-center">
-									<Label className="label-xxlarge label-brute">{level}</Label>
-								</Col>
-      					<Col xs={6} md={6}>
-      						<Button href="#" className="btn-lightning" block onClick={this.decreaseProsperity.bind(this)}><Glyphicon glyph="minus" /></Button>
-      					</Col>
-      					<Col xs={6} md={6}>
-      						<Button href="#" className="btn-scoundrel" block onClick={this.increaseProsperity.bind(this)}><Glyphicon glyph="plus" /></Button>
-      					</Col>
-      				</Row>
-							<Row className="prosperity-checks-list">
-								<Col xs={12} md={12}>
-									{prosperityChecks}
-								</Col>
-							</Row>
+            <Col xs={12} md={8} className="prosperity-checks-container">
+              <Row key="pros-1">
+                <Col xs={12} md={12} className="text-center">
+                  <h2>Prosperity</h2>
+                </Col>
+                <Col xs={12} md={12} className="prosperity-label-container text-center">
+                  <Label className="label-xxlarge label-brute">{level}</Label>
+                </Col>
+                <Col xs={3} md={3}>
+                  <Button href="#" className="btn-lightning" block onClick={this.getDecreaseProsperity("Road Event")}><Glyphicon glyph="minus" /> Road Event</Button>
+                </Col>
+                <Col xs={3} md={3}>
+                  <Button href="#" className="btn-lightning" block onClick={this.getDecreaseProsperity("City Event")}><Glyphicon glyph="minus" /> City Event</Button>
+                </Col>
+                <Col xs={3} md={3}>
+                  <Button href="#" className="btn-lightning" block onClick={this.getDecreaseProsperity("Scenario")}><Glyphicon glyph="minus" /> Scenario</Button>
+                </Col>
+                <Col xs={3} md={3}>
+                  <Button href="#" className="btn-lightning" block onClick={this.getDecreaseProsperity("Character Retirement")}><Glyphicon glyph="minus" /> Character Retirement</Button>
+                </Col>
+                <Col xs={3} md={3}>
+                  <Button href="#" className="btn-scoundrel" block onClick={this.getIncreaseProsperity("Road Event")}><Glyphicon glyph="plus" /> Road Event</Button>
+                </Col>
+                <Col xs={3} md={3}>
+                  <Button href="#" className="btn-scoundrel" block onClick={this.getIncreaseProsperity("City Event")}><Glyphicon glyph="plus" /> City Event</Button>
+                </Col>
+                <Col xs={3} md={3}>
+                  <Button href="#" className="btn-scoundrel" block onClick={this.getIncreaseProsperity("Scenario")}><Glyphicon glyph="plus" /> Scenario</Button>
+                </Col>
+                <Col xs={3} md={3}>
+                  <Button href="#" className="btn-scoundrel" block onClick={this.getIncreaseProsperity("Character Retirement")}><Glyphicon glyph="plus" /> Character Retirement</Button>
+                </Col>
+              </Row>
+              {this.getProsperity()}
+              <Row className="prosperity-checks-list" key="pros-3">
+                <Col xs={12} md={12}>
+                  <Button href="#" className="btn-lightning" block onClick={()=>this.setState({prosperityTable: !prosperityTable})}>
+                    {prosperityTable ? "Show Prosperity" : "Show Summary Log"}
+                  </Button>
+                </Col>
+              </Row>
 							<Row>
       					<Col xs={12} md={12} className="text-center">
 									<h2>Sanctuary of the Great Oak</h2>

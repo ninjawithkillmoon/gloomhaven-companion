@@ -9,6 +9,7 @@ const MAX_PROSPERITY = 64;
 let _game = Object.assign({
   "name": "",
   "prosperity": 0,
+  "prosperityLog": [],
   "donations": 0,
   "partyLocation": "",
   "partyNotes": "",
@@ -47,7 +48,7 @@ function setGameLocalStorage(game) {
   catch (e) { }
 }
 
-function changeProsperity(amount) {
+function changeProsperity(amount, source) {
   let newProsperity = _game.prosperity + amount;
 
   if (newProsperity > MAX_PROSPERITY) {
@@ -58,7 +59,10 @@ function changeProsperity(amount) {
     newProsperity = 0;
   }
 
+  _game.prosperityLog = [..._game.prosperityLog, {amount, source}];
+
   _game.prosperity = newProsperity;
+  setGame(_game);
 }
 
 function changeGame(game) {
@@ -106,7 +110,7 @@ GameStore.dispatchToken = AppDispatcher.register(action => {
       break;
 
     case GameConstants.CHANGE_PROSPERITY:
-      changeProsperity(action.amount);
+      changeProsperity(action.amount, action.source);
       GameStore.emitGameChange();
       break;
 
